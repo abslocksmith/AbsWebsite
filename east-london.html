@@ -39,25 +39,29 @@
   <header>
     <div class="header-inner">
       <a href="index.html" class="logo" style="gap:0" id="logo-container">
-        <video id="logo-video" autoplay muted playsinline style="width: 220px; height: auto; display: block;">
+        <video id="logo-video" autoplay muted playsinline preload="auto" style="width: 350px; height: auto; display: block;">
           <source src="logo-animation.mp4" type="video/mp4">
-          <img src="logo.jpg" alt="ABS Locksmiths Logo" style="width: 220px; height: auto;">
+          <img src="logo.jpg" alt="ABS Locksmiths Logo" style="width: 350px; height: auto;">
         </video>
       </a>
       <script>
-        const logoVideo = document.getElementById('logo-video');
-        if (logoVideo) {
-          logoVideo.addEventListener('ended', function() {
-            this.style.display = 'none';
-            const fallback = document.createElement('img');
-            fallback.src = 'logo.jpg';
-            fallback.alt = 'ABS Locksmiths Logo';
-            fallback.style.width = '220px';
-            fallback.style.height = 'auto';
-            fallback.style.display = 'block';
-            this.parentElement.appendChild(fallback);
-          });
-        }
+        document.addEventListener('DOMContentLoaded', function() {
+          const logoVideo = document.getElementById('logo-video');
+          if (logoVideo) {
+            logoVideo.removeAttribute('loop');
+            logoVideo.play().catch(err => console.log('Video autoplay prevented'));
+            logoVideo.addEventListener('ended', function() {
+              this.style.display = 'none';
+              const fallback = document.createElement('img');
+              fallback.src = 'logo.jpg';
+              fallback.alt = 'ABS Locksmiths Logo';
+              fallback.style.width = '350px';
+              fallback.style.height = 'auto';
+              fallback.style.display = 'block';
+              this.parentElement.appendChild(fallback);
+            }, {once: true});
+          }
+        });
       </script>
       <button class="hamburger" onclick="document.querySelector('nav').classList.toggle('open')" aria-label="Menu">
         <span></span><span></span><span></span>
