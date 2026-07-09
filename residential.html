@@ -395,6 +395,7 @@
       .footer-inner { flex-direction: column; text-align: center; }
     }
   </style>
+<link rel="stylesheet" href="carousel.css">
 <link rel="canonical" href="https://abslocksmith.co.uk/residential.html">
 </head>
 <body>
@@ -460,14 +461,22 @@
     </div>
   </section>
 
-  <!-- RESIDENTIAL JOBS PHOTO STRIP -->
+  <!-- RESIDENTIAL JOBS PHOTO CAROUSEL -->
   <section style="background:var(--surface);padding:56px 28px;">
     <div class="container">
       <div class="eyebrow reveal">Proof Of Work</div>
-      <h2 class="sec-title reveal" style="margin-bottom:32px;">From Recent Home Call-Outs</h2>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;">
-        <img src="digital-lock-2.jpg" alt="Digital smart lock fitted to a residential front door" style="width:100%;height:170px;object-fit:cover;border-radius:var(--radius-md);box-shadow:var(--shadow-sm);border:1px solid var(--border);">
-        <img src="mechanism-repair-2.jpg" alt="Door locking mechanism repair on a residential uPVC door" style="width:100%;height:170px;object-fit:cover;border-radius:var(--radius-md);box-shadow:var(--shadow-sm);border:1px solid var(--border);">
+      <h2 class="sec-title reveal" style="margin-bottom:8px;">From Recent Home Call-Outs</h2>
+      <p class="sec-body reveal" style="margin-bottom:32px;">A growing photo record from real residential jobs across Ilford and East London.</p>
+    </div>
+    <div class="pw-carousel container" data-autoplay="4000">
+      <div class="pw-track">
+        <article class="pw-card" style="background-image:url('digital-lock-1.jpg')"><span class="pw-tag pw-tag-dark">Install</span><div class="pw-card-body"><h4>Digital Lock Installation</h4><p>Residential Locksmith</p></div></article>
+        <article class="pw-card" style="background-image:url('digital-lock-2.jpg')"><span class="pw-tag pw-tag-dark">Install</span><div class="pw-card-body"><h4>Smart Lock Fitting</h4><p>Residential Locksmith</p></div></article>
+        <article class="pw-card" style="background-image:url('mechanism-repair-2.jpg')"><span class="pw-tag pw-tag-red">Repair</span><div class="pw-card-body"><h4>Locking Mechanism Repair</h4><p>Residential Locksmith</p></div></article>
+      </div>
+      <div class="pw-controls">
+        <button class="pw-playpause" aria-label="Pause photo carousel">⏸</button>
+        <div class="pw-progress"><div class="pw-progress-bar"></div></div>
       </div>
     </div>
   </section>
@@ -563,8 +572,6 @@
     const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); }), { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
   </script>
-</body>
-</html>
-
+  <script src="carousel.js" defer></script>
 </body>
 </html>

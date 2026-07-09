@@ -1,0 +1,66 @@
+/* Proof-of-work photo carousel — shared across index.html, van.html, residential.html */
+.pw-carousel { position: relative; overflow: hidden; }
+.pw-track {
+  display: flex;
+  gap: 20px;
+  will-change: transform;
+  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.pw-track.no-transition { transition: none; }
+
+.pw-card {
+  position: relative;
+  flex: 0 0 clamp(200px, 26vw, 280px);
+  height: clamp(240px, 34vw, 360px);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+}
+.pw-card::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(15,17,23,0) 42%, rgba(15,17,23,0.78) 100%);
+}
+.pw-tag {
+  position: absolute; top: 14px; left: 14px; z-index: 2;
+  font-size: 0.66rem; font-weight: 800; letter-spacing: 0.07em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 100px; color: white;
+  background: var(--blue);
+}
+.pw-tag.pw-tag-red { background: var(--red); }
+.pw-tag.pw-tag-dark { background: var(--ink); }
+
+.pw-card-body { position: absolute; left: 16px; right: 16px; bottom: 16px; z-index: 2; color: white; }
+.pw-card-body h4 {
+  font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.02rem;
+  line-height: 1.25; margin-bottom: 4px; text-shadow: 0 1px 6px rgba(0,0,0,0.25);
+}
+.pw-card-body p {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.pw-controls {
+  display: flex; align-items: center; gap: 16px;
+  margin-top: 22px;
+}
+.pw-playpause {
+  width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
+  background: var(--red); color: white; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; font-size: 1rem;
+  box-shadow: 0 4px 14px rgba(147,7,1,0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.pw-playpause:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(147,7,1,0.4); }
+.pw-playpause:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+
+.pw-progress { flex: 1; height: 4px; background: var(--border); border-radius: 100px; overflow: hidden; }
+.pw-progress-bar { height: 100%; width: 0%; background: var(--red); border-radius: 100px; }
+.pw-progress-bar.pw-animate { transition: width linear; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pw-track { transition: none; }
+}

@@ -387,6 +387,7 @@
       .footer-inner { flex-direction: column; text-align: center; }
     }
   </style>
+  <link rel="stylesheet" href="carousel.css">
   <link rel="canonical" href="https://abslocksmith.co.uk/">
 </head>
 <body>
@@ -506,55 +507,82 @@
   <div class="container">
     <div class="eyebrow reveal">Recent Work</div>
     <h2 class="sec-title reveal">A Look At Jobs We've Done</h2>
-    <p class="sec-body reveal">A few photos and a short clip from real call-outs — slam lock repairs, deadlock installs, hook locks, damage repair plates and more.</p>
+    <p class="sec-body reveal">Photos from real call-outs — slam lock repairs, deadlock installs, hook locks, digital locks, damage repair plates and more.</p>
+  </div>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;">
-
-      <div class="reveal" style="border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm);background:white;">
-        <img src="slamlocks.jpg" alt="Professional slam lock repair service on van door by ABS Locksmiths" style="width:100%;height:200px;object-fit:cover;display:block;">
-        <div style="padding:16px 18px;">
-          <span class="van-tag">Van Locksmith</span>
-          <h4 style="font-size:0.96rem;font-weight:700;color:var(--ink);margin-top:6px;">Slam Lock Repair</h4>
-        </div>
-      </div>
-
-      <div class="reveal d1" style="border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm);background:white;">
-        <img src="armourshell.jpg" alt="Armourshell van protection plate installation by professional locksmith" style="width:100%;height:200px;object-fit:cover;display:block;">
-        <div style="padding:16px 18px;">
-          <span class="van-tag">Van Locksmith</span>
-          <h4 style="font-size:0.96rem;font-weight:700;color:var(--ink);margin-top:6px;">Armourshell &amp; Protection Plates</h4>
-        </div>
-      </div>
-
-      <div class="reveal d2" style="border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm);background:white;">
-        <img src="deadlocks.jpg" alt="Professional deadlock installation on van door for enhanced security" style="width:100%;height:200px;object-fit:cover;display:block;">
-        <div style="padding:16px 18px;">
-          <span class="van-tag">Van Locksmith</span>
-          <h4 style="font-size:0.96rem;font-weight:700;color:var(--ink);margin-top:6px;">Deadlock Installation</h4>
-        </div>
-      </div>
-
-      <div class="reveal d3" style="border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm);background:white;">
-        <img src="mechanism-plates.jpg" alt="Van door mechanism protection plate repair by ABS Locksmiths" style="width:100%;height:200px;object-fit:cover;display:block;">
-        <div style="padding:16px 18px;">
-          <span class="van-tag">Van Locksmith</span>
-          <h4 style="font-size:0.96rem;font-weight:700;color:var(--ink);margin-top:6px;">Mechanism Repairs</h4>
-        </div>
-      </div>
-
-      <div class="reveal" style="border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm);background:white;">
-        <video controls preload="metadata" style="width:100%;height:200px;object-fit:cover;display:block;background:#000;">
-          <source src="hooklocks.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <div style="padding:16px 18px;">
-          <span class="van-tag">Van Locksmith</span>
-          <h4 style="font-size:0.96rem;font-weight:700;color:var(--ink);margin-top:6px;">Hook Lock Job — Video</h4>
-        </div>
-      </div>
+  <div class="pw-carousel container" data-autoplay="4200">
+    <div class="pw-track">
+      <article class="pw-card" style="background-image:url('digital-lock-1.jpg')">
+        <span class="pw-tag pw-tag-dark">Residential Locksmith</span>
+        <div class="pw-card-body"><h4>Digital Lock Installation</h4><p>Home Security</p></div>
+      </article>
+      <article class="pw-card" style="background-image:url('slamlocks.jpg')">
+        <span class="pw-tag">Van Locksmith</span>
+        <div class="pw-card-body"><h4>Slam Lock Repair</h4><p>Vehicle Security</p></div>
+      </article>
+      <article class="pw-card" style="background-image:url('deadlocks.jpg')">
+        <span class="pw-tag">Van Locksmith</span>
+        <div class="pw-card-body"><h4>Deadlock Installation</h4><p>Vehicle Security</p></div>
+      </article>
+      <article class="pw-card" style="background-image:url('armourshell.jpg')">
+        <span class="pw-tag">Van Locksmith</span>
+        <div class="pw-card-body"><h4>Armourshell &amp; Protection Plate</h4><p>Vehicle Security</p></div>
+      </article>
+      <article class="pw-card" style="background-image:url('mechanism-plates.jpg')">
+        <span class="pw-tag">Van Locksmith</span>
+        <div class="pw-card-body"><h4>Mechanism Repair</h4><p>Vehicle Security</p></div>
+      </article>
+      <article class="pw-card" style="background-image:url('pedalbox.jpg')">
+        <span class="pw-tag">Van Locksmith</span>
+        <div class="pw-card-body"><h4>Pedal Box Lock</h4><p>Vehicle Security</p></div>
+      </article>
+      <article class="pw-card" style="background-image:url('hooklock-2.jpg')">
+        <span class="pw-tag">Van Locksmith</span>
+        <div class="pw-card-body"><h4>Hook Lock Installation</h4><p>Vehicle Security</p></div>
+      </article>
+      <article class="pw-card" style="background-image:url('digital-lock-2.jpg')">
+        <span class="pw-tag pw-tag-dark">Residential Locksmith</span>
+        <div class="pw-card-body"><h4>Smart Lock Fitting</h4><p>Home Security</p></div>
+      </article>
+      <article class="pw-card" style="background-image:url('ford-barrel-1.jpg')">
+        <span class="pw-tag">Van Locksmith</span>
+        <div class="pw-card-body"><h4>Ford Security Barrel Replacement</h4><p>Vehicle Security</p></div>
+      </article>
+      <article class="pw-card" style="background-image:url('protector-plate-2.jpg')">
+        <span class="pw-tag">Van Locksmith</span>
+        <div class="pw-card-body"><h4>Door Protector Plate</h4><p>Vehicle Security</p></div>
+      </article>
+      <article class="pw-card" style="background-image:url('deadlock-3.jpg')">
+        <span class="pw-tag">Van Locksmith</span>
+        <div class="pw-card-body"><h4>Deadlock Fitting</h4><p>Vehicle Security</p></div>
+      </article>
+      <article class="pw-card" style="background-image:url('slamlock-2.jpg')">
+        <span class="pw-tag">Van Locksmith</span>
+        <div class="pw-card-body"><h4>Slam Lock Overhaul</h4><p>Vehicle Security</p></div>
+      </article>
+      <article class="pw-card" style="background-image:url('mechanism-repair-2.jpg')">
+        <span class="pw-tag pw-tag-dark">Residential Locksmith</span>
+        <div class="pw-card-body"><h4>Locking Mechanism Repair</h4><p>Home Security</p></div>
+      </article>
+      <article class="pw-card" style="background-image:url('armourshell-2.jpg')">
+        <span class="pw-tag">Van Locksmith</span>
+        <div class="pw-card-body"><h4>Armourshell Fitting</h4><p>Vehicle Security</p></div>
+      </article>
+    </div>
+    <div class="pw-controls">
+      <button class="pw-playpause" aria-label="Pause photo carousel">⏸</button>
+      <div class="pw-progress"><div class="pw-progress-bar"></div></div>
     </div>
   </div>
+
+  <div class="container">
+    <p class="sec-body reveal" style="margin-top:24px;font-size:0.9rem;">
+      🎥 <a href="hooklocks.mp4" style="color:var(--blue);font-weight:700;">Watch a hook lock job in action</a> — a short clip from a real van call-out.
+    </p>
+  </div>
 </section>
+
+<script src="carousel.js" defer></script>
   
   <section id="why">
     <div class="container">
