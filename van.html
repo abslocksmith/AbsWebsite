@@ -144,6 +144,13 @@
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
     @keyframes slideIn { from{opacity:0;transform:translateX(40px)} to{opacity:1;transform:translateX(0)} }
 
+    .page-hero-grid { display: grid; grid-template-columns: 1fr 420px; gap: 48px; align-items: center; }
+    .page-hero-img { width: 100%; height: 340px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); border: 1px solid var(--border); display: block; }
+    @media (max-width: 900px) {
+      .page-hero-grid { grid-template-columns: 1fr; }
+      .page-hero-img { height: 220px; }
+    }
+
     .hero-inner {
       max-width: 1160px; margin: 0 auto; padding: 80px 28px; width: 100%;
       position: relative; z-index: 1;
@@ -422,14 +429,17 @@
 
   <!-- PAGE HERO -->
   <section style="background:linear-gradient(135deg,#eef0ff 0%,white 60%);padding:64px 28px 48px;">
-    <div class="container">
-      <div style="display:inline-flex;align-items:center;gap:8px;font-size:0.74rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue);margin-bottom:14px;">
-        <span style="display:block;width:24px;height:2px;background:var(--red);border-radius:2px;"></span>
-        Vehicle Security
+    <div class="container page-hero-grid">
+      <div>
+        <div style="display:inline-flex;align-items:center;gap:8px;font-size:0.74rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue);margin-bottom:14px;">
+          <span style="display:block;width:24px;height:2px;background:var(--red);border-radius:2px;"></span>
+          Vehicle Security
+        </div>
+        <h1 style="font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2rem,5vw,3.6rem);line-height:1.05;letter-spacing:-0.02em;color:var(--ink);margin-bottom:16px;">Van Locksmith<br><span style="color:var(--blue);">Services</span></h1>
+        <p style="font-size:1.05rem;color:var(--body);max-width:620px;line-height:1.8;margin-bottom:32px;">Specialists in all types of van security across Ilford and East London. Mobile fitting service — we come to you. Slam locks, deadlocks, hook locks, burglar damage repair and more.</p>
+        <a href="tel:07990827063" style="display:inline-flex;align-items:center;gap:8px;font-family:'Manrope',sans-serif;font-size:0.9rem;font-weight:700;padding:14px 28px;border-radius:8px;background:var(--red);color:white;text-decoration:none;box-shadow:0 4px 20px rgba(147,7,1,0.3);">📞 Book a Van Job — 07990 827063</a>
       </div>
-      <h1 style="font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2rem,5vw,3.6rem);line-height:1.05;letter-spacing:-0.02em;color:var(--ink);margin-bottom:16px;">Van Locksmith<br><span style="color:var(--blue);">Services</span></h1>
-      <p style="font-size:1.05rem;color:var(--body);max-width:620px;line-height:1.8;margin-bottom:32px;">Specialists in all types of van security across Ilford and East London. Mobile fitting service — we come to you. Slam locks, deadlocks, hook locks, burglar damage repair and more.</p>
-      <a href="tel:07990827063" style="display:inline-flex;align-items:center;gap:8px;font-family:'Manrope',sans-serif;font-size:0.9rem;font-weight:700;padding:14px 28px;border-radius:8px;background:var(--red);color:white;text-decoration:none;box-shadow:0 4px 20px rgba(147,7,1,0.3);">📞 Book a Van Job — 07990 827063</a>
+      <img src="slamlock-2.jpg" alt="ABS Locksmiths engineer repairing a van slam lock" class="page-hero-img">
     </div>
   </section>
 
@@ -488,6 +498,20 @@
           <h4>Pedal Boxes</h4>
           <p>Secure pedal box locks deter thieves from driving away with your vehicle even if they gain access to the cab.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VAN JOBS PHOTO STRIP -->
+  <section style="background:white;padding:56px 28px;">
+    <div class="container">
+      <div class="eyebrow reveal">Proof Of Work</div>
+      <h2 class="sec-title reveal" style="margin-bottom:32px;">From Recent Van Call-Outs</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;">
+        <img src="armourshell-2.jpg" alt="Armourshell protection plate fitted to a van rear door" style="width:100%;height:170px;object-fit:cover;border-radius:var(--radius-md);box-shadow:var(--shadow-sm);border:1px solid var(--border);">
+        <img src="pedalbox.jpg" alt="Pedal box lock fitted to deter van theft" style="width:100%;height:170px;object-fit:cover;border-radius:var(--radius-md);box-shadow:var(--shadow-sm);border:1px solid var(--border);">
+        <img src="deadlock-2.jpg" alt="High-security deadlock fitted to a van side door" style="width:100%;height:170px;object-fit:cover;border-radius:var(--radius-md);box-shadow:var(--shadow-sm);border:1px solid var(--border);">
+        <img src="hooklock-2.jpg" alt="Hook lock installed on a van rear door" style="width:100%;height:170px;object-fit:cover;border-radius:var(--radius-md);box-shadow:var(--shadow-sm);border:1px solid var(--border);">
       </div>
     </div>
   </section>

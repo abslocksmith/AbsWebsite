@@ -144,6 +144,13 @@
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
     @keyframes slideIn { from{opacity:0;transform:translateX(40px)} to{opacity:1;transform:translateX(0)} }
 
+    .page-hero-grid { display: grid; grid-template-columns: 1fr 420px; gap: 48px; align-items: center; }
+    .page-hero-img { width: 100%; height: 340px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); border: 1px solid var(--border); display: block; }
+    @media (max-width: 900px) {
+      .page-hero-grid { grid-template-columns: 1fr; }
+      .page-hero-img { height: 220px; }
+    }
+
     .hero-inner {
       max-width: 1160px; margin: 0 auto; padding: 80px 28px; width: 100%;
       position: relative; z-index: 1;
@@ -422,14 +429,17 @@
 
   <!-- PAGE HERO -->
   <section style="background:linear-gradient(135deg,var(--blue-xlight) 0%,white 60%);padding:64px 28px 48px;">
-    <div class="container">
-      <div class="eyebrow" style="display:inline-flex;align-items:center;gap:8px;font-size:0.74rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue);margin-bottom:14px;">
-        <span style="display:block;width:24px;height:2px;background:var(--red);border-radius:2px;"></span>
-        Home Security
+    <div class="container page-hero-grid">
+      <div>
+        <div class="eyebrow" style="display:inline-flex;align-items:center;gap:8px;font-size:0.74rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue);margin-bottom:14px;">
+          <span style="display:block;width:24px;height:2px;background:var(--red);border-radius:2px;"></span>
+          Home Security
+        </div>
+        <h1 class="sec-title" style="font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2rem,5vw,3.6rem);line-height:1.05;letter-spacing:-0.02em;color:var(--ink);margin-bottom:16px;">Residential Locksmith<br><span style="color:var(--blue);">Services</span></h1>
+        <p style="font-size:1.05rem;color:var(--body);max-width:620px;line-height:1.8;margin-bottom:32px;">Comprehensive locksmith services for all door and window types across Ilford and East London. No hourly charge. All work guaranteed. Speak directly to your locksmith — no call centres.</p>
+        <a href="tel:07990827063" class="btn btn-red" style="display:inline-flex;align-items:center;gap:8px;font-family:'Manrope',sans-serif;font-size:0.9rem;font-weight:700;padding:14px 28px;border-radius:8px;background:var(--red);color:white;text-decoration:none;box-shadow:0 4px 20px rgba(147,7,1,0.3);">📞 Book a Job — 07990 827063</a>
       </div>
-      <h1 class="sec-title" style="font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2rem,5vw,3.6rem);line-height:1.05;letter-spacing:-0.02em;color:var(--ink);margin-bottom:16px;">Residential Locksmith<br><span style="color:var(--blue);">Services</span></h1>
-      <p style="font-size:1.05rem;color:var(--body);max-width:620px;line-height:1.8;margin-bottom:32px;">Comprehensive locksmith services for all door and window types across Ilford and East London. No hourly charge. All work guaranteed. Speak directly to your locksmith — no call centres.</p>
-      <a href="tel:07990827063" class="btn btn-red" style="display:inline-flex;align-items:center;gap:8px;font-family:'Manrope',sans-serif;font-size:0.9rem;font-weight:700;padding:14px 28px;border-radius:8px;background:var(--red);color:white;text-decoration:none;box-shadow:0 4px 20px rgba(147,7,1,0.3);">📞 Book a Job — 07990 827063</a>
+      <img src="digital-lock-1.jpg" alt="Digital smart lock fitted on a residential front door by ABS Locksmiths" class="page-hero-img">
     </div>
   </section>
 
@@ -446,6 +456,18 @@
         <div class="res-item reveal"><div class="res-num">07</div><h4>Window Safety Restrictors</h4><p>uPVC and aluminium window restrictors fitted to prevent accidents and boost home security.</p></div>
         <div class="res-item reveal d1"><div class="res-num">08</div><h4>Door Lock Repairs</h4><p>Repair or full replacement of damaged or faulty door locks, including after break-in damage.</p></div>
         <div class="res-item reveal d2"><div class="res-num">09</div><h4>Emergency Lockout</h4><p>Rapid emergency response for home lockouts — fast, professional, non-destructive entry any time of day or night.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESIDENTIAL JOBS PHOTO STRIP -->
+  <section style="background:var(--surface);padding:56px 28px;">
+    <div class="container">
+      <div class="eyebrow reveal">Proof Of Work</div>
+      <h2 class="sec-title reveal" style="margin-bottom:32px;">From Recent Home Call-Outs</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;">
+        <img src="digital-lock-2.jpg" alt="Digital smart lock fitted to a residential front door" style="width:100%;height:170px;object-fit:cover;border-radius:var(--radius-md);box-shadow:var(--shadow-sm);border:1px solid var(--border);">
+        <img src="mechanism-repair-2.jpg" alt="Door locking mechanism repair on a residential uPVC door" style="width:100%;height:170px;object-fit:cover;border-radius:var(--radius-md);box-shadow:var(--shadow-sm);border:1px solid var(--border);">
       </div>
     </div>
   </section>
