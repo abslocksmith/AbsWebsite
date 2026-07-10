@@ -409,32 +409,51 @@
         </video>
       </a>
       <script>
+        function showStaticLogo() {
+          const logoVideo = document.getElementById('logo-video');
+          if (logoVideo && logoVideo.style.display !== 'none') {
+            logoVideo.style.display = 'none';
+            const fallback = document.createElement('img');
+            fallback.src = 'logo.jpg';
+            fallback.alt = 'ABS Locksmiths Logo';
+            fallback.style.width = 'auto';
+            fallback.style.height = '46px';
+            fallback.style.display = 'block';
+            logoVideo.parentElement.appendChild(fallback);
+          }
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
           const logoVideo = document.getElementById('logo-video');
           if (logoVideo) {
-            // Remove any loop-related attributes
             logoVideo.removeAttribute('loop');
             logoVideo.loop = false;
-            
-            // Force play
+
+            // Error handler - show static logo if video fails
+            logoVideo.addEventListener('error', function() {
+              console.log('Video failed to load');
+              showStaticLogo();
+            });
+
+            // Timeout fallback - if video doesn't start playing after 2 seconds, show static logo
+            setTimeout(function() {
+              if (logoVideo.currentTime === 0 && logoVideo.readyState < 2) {
+                console.log('Video not loading, showing fallback');
+                showStaticLogo();
+              }
+            }, 2000);
+
+            // Try to play
             const playPromise = logoVideo.play();
             if (playPromise !== undefined) {
               playPromise.catch(err => console.log('Video autoplay prevented'));
             }
-            
-            // Handle when video ends - show static logo and prevent replay
+
+            // Handle when video ends
             logoVideo.addEventListener('ended', function() {
               this.pause();
               this.currentTime = this.duration;
-              this.style.display = 'none';
-              
-              const fallback = document.createElement('img');
-              fallback.src = 'logo.jpg';
-              fallback.alt = 'ABS Locksmiths Logo';
-              fallback.style.width = 'auto';
-              fallback.style.height = '46px';
-              fallback.style.display = 'block';
-              this.parentElement.appendChild(fallback);
+              showStaticLogo();
             }, {once: true});
           }
         });
