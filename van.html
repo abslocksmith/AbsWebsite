@@ -412,12 +412,37 @@
 
   <header>
     <div class="header-inner">
-      <a href="#" class="logo" style="gap:0">
-        <video autoplay muted loop playsinline style="width: 160px; height: auto; display: block;">
+      <a href="#" class="logo" style="gap:0" id="logo-container">
+        <video id="logo-video" autoplay muted playsinline preload="auto" style="width: auto; height: 46px; display: block;">
           <source src="logo-animation.mp4" type="video/mp4">
-          <img src="logo.jpg" alt="ABS Locksmiths Logo" style="width: 160px; height: auto;">
+          <img src="logo.jpg" alt="ABS Locksmiths Logo" style="width: auto; height: 46px;">
         </video>
       </a>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const logoVideo = document.getElementById('logo-video');
+          if (logoVideo) {
+            logoVideo.removeAttribute('loop');
+            logoVideo.loop = false;
+            const playPromise = logoVideo.play();
+            if (playPromise !== undefined) {
+              playPromise.catch(err => console.log('Video autoplay prevented'));
+            }
+            logoVideo.addEventListener('ended', function() {
+              this.pause();
+              this.currentTime = this.duration;
+              this.style.display = 'none';
+              const fallback = document.createElement('img');
+              fallback.src = 'logo.jpg';
+              fallback.alt = 'ABS Locksmiths Logo';
+              fallback.style.width = 'auto';
+              fallback.style.height = '46px';
+              fallback.style.display = 'block';
+              this.parentElement.appendChild(fallback);
+            }, {once: true});
+          }
+        });
+      </script>
       <button class="hamburger" onclick="document.querySelector('nav').classList.toggle('open')" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
