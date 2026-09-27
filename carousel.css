@@ -14,14 +14,21 @@
   height: clamp(240px, 34vw, 360px);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  background-size: cover;
-  background-position: center;
+  background: var(--surface, #eee);
   box-shadow: var(--shadow-md);
   border: 1px solid var(--border);
 }
+/* Real <img> (loading="lazy") sits behind the gradient overlay and captions,
+   so off-screen carousel photos are only fetched as they scroll into view. */
+.pw-card .pw-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  display: block; z-index: 0;
+}
 .pw-card::after {
   content: "";
-  position: absolute; inset: 0;
+  position: absolute; inset: 0; z-index: 1;
   background: linear-gradient(180deg, rgba(15,17,23,0) 42%, rgba(15,17,23,0.78) 100%);
 }
 .pw-tag {
