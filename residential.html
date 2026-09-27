@@ -180,35 +180,6 @@
   
 
   <script>
-    async function doSubmit(e) {
-      e.preventDefault();
-      const f = e.target;
-      const btn = f.querySelector('button[type=submit]');
-      btn.textContent = 'Sending...';
-      btn.disabled = true;
-      const FORMSPREE_ID = 'YOUR_FORMSPREE_ID'; // ← REPLACE after signing up at formspree.io
-      try {
-        const res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
-          method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: new FormData(f)
-        });
-        if (res.ok) {
-          f.reset();
-          document.getElementById('formOk').style.display = 'block';
-          document.getElementById('formOk').textContent = '✓ Message sent! We will be in touch shortly.';
-          btn.textContent = 'Message Sent ✓';
-        } else {
-          throw new Error('Failed');
-        }
-      } catch {
-        // Fallback to mailto
-        const b = `Name: ${f.name.value}\nPhone: ${f.phone.value}\nEmail: ${f.email.value}\nService: ${f.service.value}\n\nMessage:\n${f.message.value}`;
-        window.location.href = `mailto:info@abslocksmith.co.uk?subject=Website Enquiry&body=${encodeURIComponent(b)}`;
-        btn.textContent = 'Send Message →';
-        btn.disabled = false;
-      }
-    }
     const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); }), { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
   </script>

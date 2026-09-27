@@ -351,7 +351,11 @@
         <div class="form-card reveal d1">
           <h3>Send a Message</h3>
           <p>We'll get back to you with a free estimate.</p>
-          <form onsubmit="doSubmit(event)">
+          <form id="contactForm" onsubmit="doSubmit(event)">
+            <input type="hidden" name="access_key" value="0f7413a2-5f08-404a-adc8-eeff3b9cfaa8" />
+            <input type="hidden" name="from_name" value="ABS Locksmiths website" />
+            <input type="hidden" name="subject" value="New enquiry from the ABS Locksmiths website" />
+            <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none !important" />
             <div class="f-row">
               <div class="f-group"><label>Your Name</label><input type="text" name="name" placeholder="John Smith" required /></div>
               <div class="f-group"><label>Phone Number</label><input type="tel" name="phone" placeholder="07xxx xxxxxx" required /></div>
@@ -390,25 +394,38 @@
   </div>
 
   <script>
-    function doSubmit(e) {
+    // Sends the contact form straight to us via Web3Forms (no email app needed).
+    async function doSubmit(e) {
       e.preventDefault();
-      const f = e.target;
-      const name    = f.name.value.trim();
-      const phone   = f.phone.value.trim();
-      const email   = f.email.value.trim();
+      const f  = e.target;
+      const ok = document.getElementById('formOk');
+      const btn = f.querySelector('button[type=submit]');
+      const label = btn.textContent;
       const service = f.service.value;
-      const message = f.message.value.trim();
-      const subject = encodeURIComponent('Website Enquiry' + (service ? ' — ' + service : ''));
-      const body    = encodeURIComponent(
-        'Name: ' + name + '\n' +
-        'Phone: ' + phone + '\n' +
-        'Email: ' + email + '\n' +
-        'Service: ' + service + '\n\n' +
-        'Message:\n' + message
-      );
-      window.location.href = 'mailto:info@abslocksmith.co.uk?subject=' + subject + '&body=' + body;
-      document.getElementById('formOk').style.display = 'block';
-      document.getElementById('formOk').textContent = '✓ Your email app is opening — message is ready to send to us.';
+      const data = new FormData(f);
+      data.set('subject', 'New enquiry from the ABS Locksmiths website' + (service ? ' — ' + service : ''));
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: data
+        });
+        const json = await res.json();
+        if (!json.success) throw new Error(json.message || 'Submit failed');
+        f.reset();
+        ok.style.display = 'block';
+        ok.style.color = '';
+        ok.textContent = "✓ Thanks — your message has been sent. We'll be in touch shortly.";
+        btn.textContent = 'Message sent ✓';
+      } catch (err) {
+        ok.style.display = 'block';
+        ok.style.color = '#930701';
+        ok.textContent = 'Sorry — something went wrong sending that. Please call us on 07990 827063.';
+        btn.disabled = false;
+        btn.textContent = label;
+      }
     }
     const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); }), { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
